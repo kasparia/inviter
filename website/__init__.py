@@ -61,7 +61,9 @@ def create_app():
 
 def create_database(app):
 	if not path.exists('website/' + DB_NAME):
-		db.create_all(app=app)
+		with app.app_context():
+			db.create_all()
+		# db.create_all(app=app)
 		print('Database created!')
 
 def is_valid_email(email):
