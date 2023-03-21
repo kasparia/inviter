@@ -12,3 +12,10 @@ Generate codes or the app won't launch correctly:
 Then run the main app:
 
 `python3 main.py`
+
+## Tested on dependecies
+* Python3           `3.11.2_1`
+* Flask             `2.2.3`
+* Flask-Login       `0.6.2`
+* Flask-SQLAlchemy  `3.0.3`
+* SQLAlchemy        `2.0.7`
