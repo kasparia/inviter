@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block title %}Home{% endblock %} {% block content %}
+
+<H1>Plz gib email</H1>
+
+<form>
+  <input type="hidden" id="code" name="code" value={{code}}><br>
+  <label for="code">Email:</label><br>
+  <input type="text" id="email" name="email"><br>
+  <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
