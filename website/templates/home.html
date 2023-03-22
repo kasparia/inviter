@@ -1,13 +1,14 @@
 {% extends 'base.html' %} {% block title %}Home{% endblock %} {% block content %}
 
-<H1>Enter the secret code</H1>
-
-<form>
-  <label for="code">Code:</label><br>
-  <input type="text" id="code" name="code"><br>
-  <!--<label for="code">Email:</label><br>
-  <input type="text" id="email" name="email"><br>-->
-  <input type="submit" value="Submit">
-</form>
+<div class="register">
+  <div class="register-title">Registritation</div>
+  <form>
+    <label for="code">Name:</label><br>
+    <input type="text" id="nameField" name="nameField"><br>
+    <label for="code">Email:</label><br>
+    <input type="text" id="emailField" name="emailField"><br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
 
 {% endblock %}

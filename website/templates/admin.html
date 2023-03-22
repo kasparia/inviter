@@ -3,9 +3,9 @@
 <H1>Registered codes</H1>
 
 <ul class="list-group list-group-flush" id="notes">
-	{% for Registrant in registrants %}
-	<li class="list-group-item">{{ Registrant.invitecode }}
-	<p>{{ Registrant.reg_email }}</p>
+	{% for Visitor in registrants %}
+	<li class="list-group-item">{{ Visitor.visitorEmail }}
+	<p>{{ Visitor.visitorName }}</p>
 	</li>
 	{% endfor %}
 </ul>
