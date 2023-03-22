@@ -14,3 +14,7 @@ class Registrant(db.Model):
 	reg_email = db.Column(db.String(150), unique=True)
 	used = db.Column(db.Boolean(False))
 	
+class Visitor(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	visitorName = db.Column(db.String(150), unique=True)
+	visitorEmail = db.Column(db.String(150), unique=True)
