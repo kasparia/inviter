@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, logout_user, current_user
 from . import db, is_valid_email, is_valid_string
-from .models import Registrant, Visitor
+from .models import Visitor
 
 views = Blueprint('views', __name__)
 
@@ -19,21 +19,22 @@ def home():
 			if visitorEmail != None:
 				flash("Email already registered", category='error')
 				# return render_template("register.html", user=current_user, code=input_code)
-				return render_template("register.html", user=current_user)
+			#	return render_template("register.html")
 			else:	
 				# visitorInstance = Visitor.query.filter_by(visitorEmail=emailFieldData+"\n").first()
 				#if is_valid_string(nameFieldData):		
+
 				visitorInstance = Visitor.query.filter_by(visitorEmail=emailFieldData+"\n").first()
-				if visitorInstance == None:
+				if visitorInstance == None and is_valid_string(nameFieldData):
 					visitorInstance = Visitor()
 					visitorInstance.visitorName = nameFieldData
 					visitorInstance.visitorEmail = emailFieldData
 					db.session.add(visitorInstance)
 					db.session.commit()
-					return("Email registered!")					
+					return("Email registered!")
 				else:
-					flash("Invalid code", category='error')
-					return render_template("home.html", user=current_user)
+					flash("Invalid name given", category='error')
+					return render_template("home.html")
 						
 		else:
 			flash("Invalid email address", category='error')
