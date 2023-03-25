@@ -70,8 +70,8 @@ def is_valid_email(email):
     match = re.match(pattern, email)
     return match is not None
 
-def is_valid_string(s):
-	for c in s:
-		if not c.isalnum():
-			return False
-	return True
+def is_valid_string(inputString):
+	if all(letterIterator.isalpha() or letterIterator.isspace() for letterIterator in inputString):
+		return True
+	else:
+		return False
