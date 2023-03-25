@@ -158,3 +158,20 @@ input {
   width: 100%;
   margin: 10px 0;
 }
+
+.alert {
+  max-width: 600px;
+  margin: auto;
+}
+
+.alert-danger {
+  background: #f2ff00;
+}
+
+.alert-info {
+  background: none;
+}
+
+.alert-success {
+  background: #00ff00;
+}

@@ -8,6 +8,12 @@
       {{ message }}
     </div>
 
+    {% elif category == 'info' %}
+
+    <div class="alert alert-info alert-dismissable fade show" role="alert">
+      {{ message }}
+    </div>
+
     {% else%}
 
     <div class="alert alert-success alert-dismissable fade show" role="alert">
