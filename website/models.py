@@ -16,5 +16,5 @@ class Registrant(db.Model):
 	
 class Visitor(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
-	visitorName = db.Column(db.String(150), unique=True)
+	visitorName = db.Column(db.String(150), unique=False)
 	visitorEmail = db.Column(db.String(150), unique=True)
