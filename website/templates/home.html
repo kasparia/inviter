@@ -1,14 +1,70 @@
 {% extends 'base.html' %} {% block title %}Home{% endblock %} {% block content %}
 
+<div class="party-content">
+  <h1>non-temporal ___ VALA</h1>
+  <p>Two day joint operation of two local labels held in secret Helsinki location. Twirly ride ahead.</p>
+  <div class="lineup">
+    <div class="lineup-side">
+      <span>~~</span>
+      <h4>21.4. ___ non-temporal<br></h4>
+      <ul>
+        <li>Lora Mipsum [UK]</li>
+        <li>Astral VIP [DE]</li>
+        <li>Carlina Carpelan</li>
+        <li>Jeku</li>
+      </ul>
+      <span>~~</span>
+    </div>
+
+    <div class="lineup-side">
+      <span>~~</span>
+      <h4>22.4. ___ VALA<br></h4>
+      
+      <ul>
+        <li>Konduku [NL]</li>
+        <li>Paula Koski</li>
+        <li>Kaspiann & VC-118A</li>
+      </ul>
+
+      <span>~~</span>
+    </div>
+
+  </div>
+</div>
+
+
 <div class="register">
   <div class="register-title">Registritation</div>
-  <form>
-    <label for="code">Name:</label><br>
-    <input type="text" id="nameField" name="nameField"><br>
-    <label for="code">Email:</label><br>
-    <input type="text" id="emailField" name="emailField"><br>
-    <input type="submit" value="Submit">
-  </form>
+  <div class="form-wrapper">
+    
+    <div class="info-text">
+      <p>Register here to attend the party. Registration is personal, so every attendant should register themselves. We'll send the information by email closer to the party.</p>
+    </div>
+
+    
+
+    <div class="register-messages">
+      {% include 'messages.html' %}
+    </div>
+    
+    {% if not visitorRegistered %}
+      <form>
+        <label for="nameField">Name:</label>
+        <input type="text" id="nameField" name="nameField">
+        <label for="emailField">Email:</label>
+        <input type="text" id="emailField" name="emailField">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  {% endif %}
+
+  <div class="disclaimer">
+    <p>If you wish to be forgotten from the list or have any other questions, please email us:<br> soundsofvala@gmail.com<br> <3</p>
+  </div>
+</div>
+
+<div class="flyer-wrapper">
+  <img src="{{url_for('static', filename='nt_vala_final-web-full-flyer.png')}}" />
 </div>
 
 {% endblock %}

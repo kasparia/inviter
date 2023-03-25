@@ -5,12 +5,11 @@ from .models import Visitor
 
 views = Blueprint('views', __name__)
 
-@views.route('/', methods=['GET', 'POST'])
+@views.route('/', methods=['GET'])
 def home():
-	
-	# if request.args.get('code') !=None and request.args.get('email') !=None:
-	if request.args.get('nameField') !=None and request.args.get('emailField') !=None:
-		# input_code = request.args.get('code')
+
+
+	if request.args.get('nameField') != None and request.args.get('nameField') != "" and request.args.get('emailField') != None and request.args.get('emailField') != "":
 		nameFieldData = request.args.get('nameField')
 		emailFieldData = request.args.get('emailField')
 
@@ -18,11 +17,8 @@ def home():
 			visitorEmail = Visitor.query.filter_by(visitorEmail=emailFieldData).first()
 			if visitorEmail != None:
 				flash("Email already registered", category='error')
-				# return render_template("register.html", user=current_user, code=input_code)
-			#	return render_template("register.html")
+				return render_template("home.html", user=current_user, nameField=nameFieldData, emailField=emailFieldData)
 			else:	
-				# visitorInstance = Visitor.query.filter_by(visitorEmail=emailFieldData+"\n").first()
-				#if is_valid_string(nameFieldData):		
 
 				visitorInstance = Visitor.query.filter_by(visitorEmail=emailFieldData+"\n").first()
 				if visitorInstance == None and is_valid_string(nameFieldData):
@@ -31,18 +27,22 @@ def home():
 					visitorInstance.visitorEmail = emailFieldData
 					db.session.add(visitorInstance)
 					db.session.commit()
-					return("Email registered!")
+					# return("Email registered!")
+
+					flash("Registration successful", category='success')
+					return render_template("home.html", user=current_user, visitorRegistered=True)
 				else:
 					flash("Invalid name given", category='error')
-					return render_template("home.html")
+					return render_template("home.html", user=current_user, visitorRegistered=False)
 						
 		else:
 			flash("Invalid email address", category='error')
 			# return render_template("register.html", user=current_user, code=input_code)
-			return render_template("register.html", user=current_user)
+			#return render_template("register.html", user=current_user)
+			return render_template("home.html", user=current_user, visitorRegistered=False)
 	else:
-		#flash("Invalid code", category='error')
-		return render_template("home.html", user=current_user)
+		flash("Please fill your info :)", category='error')
+		return render_template("home.html", user=current_user, visitorRegistered=False)
 
 
 
