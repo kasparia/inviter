@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
-from flask_login import login_required, logout_user, current_user
+from flask import Blueprint, render_template, request, flash
+from flask_login import login_required, current_user
 from . import db, is_valid_email, is_valid_string
 from .models import Visitor
 
@@ -7,7 +7,6 @@ views = Blueprint('views', __name__)
 
 @views.route('/', methods=['GET'])
 def home():
-
 
 	if request.args.get('nameField') != None and request.args.get('nameField') != "" and request.args.get('emailField') != None and request.args.get('emailField') != "":
 		nameFieldData = request.args.get('nameField')
