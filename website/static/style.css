@@ -133,11 +133,14 @@ h3 {
   max-width: 600px;
   margin: auto;
   text-align: center;
+  width: 100%;
 }
 
 .form-wrapper {
   margin: 0 0 30px;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .disclaimer {
@@ -145,12 +148,20 @@ h3 {
   margin: 10px 0;
   font-size: 12px;
   text-align: center;
+  width: 100%;
 }
-
 
 form {
   margin: auto;
   max-width: 420px;
+}
+
+.form-wrapper > img {
+  margin: auto;
+}
+
+.form-capt {
+  margin: 20px 0;
 }
 
 input {
@@ -159,8 +170,11 @@ input {
   margin: 10px 0;
 }
 
+.register-messages {
+  width: 100%;
+}
+
 .alert {
-  max-width: 600px;
   margin: auto;
 }
 

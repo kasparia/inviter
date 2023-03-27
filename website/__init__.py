@@ -1,12 +1,16 @@
-from flask import Flask
+from flask import Flask, session
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 from werkzeug.security import generate_password_hash
+from captcha.image import ImageCaptcha
 import re
+import random
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
+
+captchaSequence = ""
 
 def create_app():
 	app = Flask(__name__)
@@ -75,3 +79,13 @@ def is_valid_string(inputString):
 		return True
 	else:
 		return False
+	
+def generateCaptchaSequence():
+	image = ImageCaptcha()
+	numberSequence = str(random.randint(0,9999))
+
+	session['captcha'] = numberSequence
+
+	sequence = image.generate(numberSequence)
+	image.write(numberSequence, './website/static/capout.png')
+	return numberSequence

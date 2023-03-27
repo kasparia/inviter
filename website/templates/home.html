@@ -34,7 +34,7 @@
 
 
 <div class="register">
-  <div class="register-title">Registritation</div>
+  <div class="register-title">Register:</div>
   <div class="form-wrapper">
     
     <div class="info-text">
@@ -46,9 +46,12 @@
     <div class="register-messages">
       {% include 'messages.html' %}
     </div>
-    
     {% if not visitorRegistered %}
+      
       <form>
+        <img class="form-capt" src="{{url_for('static', filename='capout.png')}}" /><br>
+        <label for="codeTest">Numbers in the image above:</label>
+        <input type="text" id="codeTest" name="codeTest">
         <label for="nameField">Name:</label>
         <input type="text" id="nameField" name="nameField">
         <label for="emailField">Email:</label>
