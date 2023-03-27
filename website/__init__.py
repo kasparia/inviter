@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash
 from captcha.image import ImageCaptcha
 import re
 import random
+import base64
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -87,5 +88,5 @@ def generateCaptchaSequence():
 	session['captcha'] = numberSequence
 
 	sequence = image.generate(numberSequence)
-	image.write(numberSequence, './website/static/capout.png')
-	return numberSequence
+	encodedCaptcha = base64.b64encode(sequence.read()).decode('ascii')
+	return encodedCaptcha
