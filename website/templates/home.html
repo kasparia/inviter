@@ -48,8 +48,8 @@
     </div>
     {% if not visitorRegistered %}
       
-      <form>
-        <img class="form-capt" src="{{url_for('static', filename='capout.png')}}" /><br>
+      <form method="POST">
+        <img class="form-capt" src="data:image/png;base64, {{ captchaImage }}" /><br>
         <label for="codeTest">Numbers in the image above:</label>
         <input type="text" id="codeTest" name="codeTest">
         <label for="nameField">Name:</label>

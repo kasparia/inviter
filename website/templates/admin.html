@@ -4,8 +4,8 @@
 
 <ul class="list-group list-group-flush" id="notes">
 	{% for Visitor in registrants %}
-	<li class="list-group-item">{{ Visitor.visitorEmail }}
-	<p>{{ Visitor.visitorName }}</p>
+	<li class="list-group-item">
+		<p>{{ Visitor.visitorEmail }} -- {{ Visitor.visitorName }}</p>
 	</li>
 	{% endfor %}
 </ul>
